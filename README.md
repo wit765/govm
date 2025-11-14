@@ -22,6 +22,12 @@ source ${HOME}/.bashrc
 govm help
 ```
 
+### update govm
+
+```bash
+govm pull
+```
+
 ### Show govm version
 
 ```bash

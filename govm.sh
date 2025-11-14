@@ -160,6 +160,25 @@ function govm_delete_golang_ver() {
     fi
 }
 
+function govm_pull() {
+    if [[ $# != 0 ]]; then
+        echo "Usage: ${FUNCNAME[@]}"
+        return 1
+    fi
+
+    echo " Updating govm ..."
+    cd $(dirname $0)
+    git reset --hard
+    git pull
+
+    if [[ $? -ne 0 ]]; then
+        echo "Fail to update govm!"
+        return 2
+    else
+        echo "Update govm ok"
+    fi
+}
+
 function govm() {
     if [[ $# == 0 ]]; then
         govm_help
@@ -193,6 +212,9 @@ function govm() {
             return $?
         elif [[ "$1" == "r" || "$1" == "remote" ]]; then
             govm_list_remote_some $2
+            return $?
+        elif [[ "$1" == "p"|| "$1" == "pull" ]]; then
+            govm_pull
             return $?
         fi
     fi

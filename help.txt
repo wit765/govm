@@ -6,6 +6,7 @@ Usage
 
 Commands:
     h, help             Display this help
+    p, pull             Update govm
     v, version          Show govm version
     c, current          Print current golang version
     l, local            List golang versions which has been installed locally
@@ -17,6 +18,7 @@ Commands:
 
 Examples:
     govm help
+    govm pull
     govm version
     govm current
     govm local
